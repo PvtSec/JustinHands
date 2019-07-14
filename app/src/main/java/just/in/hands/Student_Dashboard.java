@@ -25,7 +25,7 @@ import java.util.Map;
 public class Student_Dashboard extends AppCompatActivity
 {
     SharedPreferences student;
-    TextView student_id;
+    TextView student_id,student_name;
     CardView updates,notes,attendance,internals,projects,helpdesk;
     LinearLayout whole;
 
@@ -35,6 +35,7 @@ public class Student_Dashboard extends AppCompatActivity
         HideSyS_UI.hideui(getWindow().getDecorView());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student__dashboard);
+        student_name=findViewById(R.id.username_dash);
         student_id = findViewById(R.id.userid_dash);
         updates = findViewById(R.id.updates_card);
         notes = findViewById(R.id.notes_card);
@@ -53,7 +54,7 @@ public class Student_Dashboard extends AppCompatActivity
 
         public void start_fetch()
         {
-        String url="http://yesmsbomber.tk/api/user_data.php";
+        String url="http://neutralizer.ml/api/user_data.php";
             RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>()
             {
@@ -62,7 +63,7 @@ public class Student_Dashboard extends AppCompatActivity
                 {
                     try
                     {
-                        Toast.makeText(getApplicationContext(),"This toast is response inside",Toast.LENGTH_SHORT).show();
+                        student_name.setText(response);
                     }
                     catch (Exception e)
                     {
