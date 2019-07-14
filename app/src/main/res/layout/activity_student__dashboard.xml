@@ -88,6 +88,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:transitionName="@string/dash_updates"
+                        android:id="@+id/bell_icon"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center_vertical"

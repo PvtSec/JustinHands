@@ -1,12 +1,17 @@
 package just.in.hands;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.transition.Fade;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,6 +50,8 @@ public class Student_Dashboard extends AppCompatActivity
 
         student = getSharedPreferences("login", MODE_PRIVATE);
         student_id.setText(student.getString("Student_ID", ""));
+
+
         start_fetch();
         start_cards();
         }
@@ -93,7 +100,11 @@ public class Student_Dashboard extends AppCompatActivity
                 @Override
                 public void onClick(View v)
                 {
-                    startActivity(new Intent(Student_Dashboard.this, Updates_Activity.class));
+                    Intent update =new Intent(Student_Dashboard.this, Updates_Activity.class);
+                    View sharedView = findViewById(R.id.bell_icon);
+                    String transitionName = getString(R.string.dash_updates);
+                    ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(Student_Dashboard.this, sharedView, transitionName);
+                    startActivity(update, transitionActivityOptions.toBundle());
                 }
             });
             notes.setOnClickListener(new View.OnClickListener() {
