@@ -21,11 +21,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginVertical="10dp"
             android:gravity="top"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/username_dash"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -36,7 +37,7 @@
                 android:textColor="#E6FFFFFF" />
 
             <TextView
-                android:id="@+id/student_id_txt"
+                android:id="@+id/userid_dash"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
@@ -46,6 +47,7 @@
                 android:textColor="#E6FFFFFF" />
 
             <TextView
+                android:id="@+id/dept_dash"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
@@ -68,14 +70,16 @@
             android:layout_height="120dp"
             android:gravity="center"
             android:orientation="horizontal">
+
             <android.support.v7.widget.CardView
-                android:foreground="?selectableItemBackground"
+                android:id="@+id/updates_card"
                 android:layout_width="150dip"
                 android:layout_height="100dip"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
                 app:cardBackgroundColor="@android:color/white"
-                app:cardElevation="5dp"
                 app:cardCornerRadius="15dp"
-                android:clickable="true">
+                app:cardElevation="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -83,26 +87,27 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_gravity="center_vertical"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="5dp"
-                        android:src="@drawable/logo_small"/>
+                        android:src="@drawable/updates" />
+
                     <View
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="2dp"
                         android:layout_width="0.5dp"
                         android:layout_height="match_parent"
-                        android:background="#BF252525"/>
+                        android:layout_marginVertical="25dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="2dp"
+                        android:background="#BF252525" />
+
                     <TextView
-                        android:layout_marginRight="5dp"
-                        android:textAlignment="center"
-                        android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="This is a sample text"/>
+                        android:layout_marginRight="5dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/dash_updates"
+                        android:textAlignment="center" />
 
                 </LinearLayout>
 
@@ -110,14 +115,16 @@
             <View
                 android:layout_width="25dp"
                 android:layout_height="match_parent"/>
+
             <android.support.v7.widget.CardView
-                android:foreground="?selectableItemBackground"
+                android:id="@+id/notes_card"
                 android:layout_width="150dip"
                 android:layout_height="100dip"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
                 app:cardBackgroundColor="@android:color/white"
-                app:cardElevation="5dp"
                 app:cardCornerRadius="15dp"
-                android:clickable="true">
+                app:cardElevation="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -125,26 +132,27 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_gravity="center_vertical"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="5dp"
-                        android:src="@drawable/logo_small"/>
+                        android:src="@drawable/notes" />
+
                     <View
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="2dp"
                         android:layout_width="0.5dp"
                         android:layout_height="match_parent"
-                        android:background="#BF252525"/>
+                        android:layout_marginVertical="25dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="2dp"
+                        android:background="#BF252525" />
+
                     <TextView
-                        android:layout_marginRight="5dp"
-                        android:textAlignment="center"
-                        android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="This is a sample text"/>
+                        android:layout_marginRight="5dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/dash_notes"
+                        android:textAlignment="center" />
 
                 </LinearLayout>
 
@@ -158,14 +166,16 @@
             android:layout_height="120dp"
             android:gravity="center"
             android:orientation="horizontal">
+
             <android.support.v7.widget.CardView
-                android:foreground="?selectableItemBackground"
+                android:id="@+id/attendance_card"
                 android:layout_width="150dip"
                 android:layout_height="100dip"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
                 app:cardBackgroundColor="@android:color/white"
-                app:cardElevation="5dp"
                 app:cardCornerRadius="15dp"
-                android:clickable="true">
+                app:cardElevation="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -173,26 +183,27 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_gravity="center_vertical"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="5dp"
-                        android:src="@drawable/logo_small"/>
+                        android:src="@drawable/attendance" />
+
                     <View
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="2dp"
                         android:layout_width="0.5dp"
                         android:layout_height="match_parent"
-                        android:background="#BF252525"/>
+                        android:layout_marginVertical="25dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="2dp"
+                        android:background="#BF252525" />
+
                     <TextView
-                        android:layout_marginRight="5dp"
-                        android:textAlignment="center"
-                        android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="This is a sample text"/>
+                        android:layout_marginRight="5dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/dash_attendance"
+                        android:textAlignment="center" />
 
                 </LinearLayout>
 
@@ -200,14 +211,16 @@
             <View
                 android:layout_width="25dp"
                 android:layout_height="match_parent"/>
+
             <android.support.v7.widget.CardView
-                android:foreground="?selectableItemBackground"
+                android:id="@+id/internals_card"
                 android:layout_width="150dip"
                 android:layout_height="100dip"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
                 app:cardBackgroundColor="@android:color/white"
-                app:cardElevation="5dp"
                 app:cardCornerRadius="15dp"
-                android:clickable="true">
+                app:cardElevation="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -215,26 +228,27 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_gravity="center_vertical"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="5dp"
-                        android:src="@drawable/logo_small"/>
+                        android:src="@drawable/internals" />
+
                     <View
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="2dp"
                         android:layout_width="0.5dp"
                         android:layout_height="match_parent"
-                        android:background="#BF252525"/>
+                        android:layout_marginVertical="25dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="2dp"
+                        android:background="#BF252525" />
+
                     <TextView
-                        android:layout_marginRight="5dp"
-                        android:textAlignment="center"
-                        android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="This is a sample text"/>
+                        android:layout_marginRight="5dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/dash_internals"
+                        android:textAlignment="center" />
 
                 </LinearLayout>
 
@@ -248,14 +262,16 @@
             android:layout_height="120dp"
             android:gravity="center"
             android:orientation="horizontal">
+
             <android.support.v7.widget.CardView
-                android:foreground="?selectableItemBackground"
+                android:id="@+id/projects_card"
                 android:layout_width="150dip"
                 android:layout_height="100dip"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
                 app:cardBackgroundColor="@android:color/white"
-                app:cardElevation="5dp"
                 app:cardCornerRadius="15dp"
-                android:clickable="true">
+                app:cardElevation="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -263,26 +279,27 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_gravity="center_vertical"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="5dp"
-                        android:src="@drawable/logo_small"/>
+                        android:src="@drawable/projects" />
+
                     <View
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="2dp"
                         android:layout_width="0.5dp"
                         android:layout_height="match_parent"
-                        android:background="#BF252525"/>
+                        android:layout_marginVertical="25dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="2dp"
+                        android:background="#BF252525" />
+
                     <TextView
-                        android:layout_marginRight="5dp"
-                        android:textAlignment="center"
-                        android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="This is a sample text"/>
+                        android:layout_marginRight="5dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/dash_projects"
+                        android:textAlignment="center" />
 
                 </LinearLayout>
 
@@ -290,14 +307,16 @@
             <View
                 android:layout_width="25dp"
                 android:layout_height="match_parent"/>
+
             <android.support.v7.widget.CardView
-                android:foreground="?selectableItemBackground"
+                android:id="@+id/helpdesk_card"
                 android:layout_width="150dip"
                 android:layout_height="100dip"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
                 app:cardBackgroundColor="@android:color/white"
-                app:cardElevation="5dp"
                 app:cardCornerRadius="15dp"
-                android:clickable="true">
+                app:cardElevation="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -305,26 +324,27 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_gravity="center_vertical"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="5dp"
-                        android:src="@drawable/logo_small"/>
+                        android:src="@drawable/helpdesk" />
+
                     <View
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="2dp"
                         android:layout_width="0.5dp"
                         android:layout_height="match_parent"
-                        android:background="#BF252525"/>
+                        android:layout_marginVertical="25dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="2dp"
+                        android:background="#BF252525" />
+
                     <TextView
-                        android:layout_marginRight="5dp"
-                        android:textAlignment="center"
-                        android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="This is a sample text"/>
+                        android:layout_marginRight="5dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/dash_helpdesk"
+                        android:textAlignment="center" />
 
                 </LinearLayout>
 

@@ -12,10 +12,18 @@
         android:roundIcon="@drawable/logo_small"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Student_Dashboard"></activity>
+        <activity android:name=".Helpdesk_Activity"></activity>
+        <activity android:name=".Projects_Activity" />
+        <activity android:name=".Internals_Activity" />
+        <activity android:name=".Attendance_Activity" />
+        <activity android:name=".Notes_Activity" />
+        <activity android:name=".Updates_Activity" />
+        <activity android:name=".Student_Dashboard" />
         <activity android:name=".Signup_activity" />
         <activity android:name=".Login_Activity" />
-        <activity android:theme="@style/SplashAppTheme" android:name=".Initiate">
+        <activity
+            android:name=".Initiate"
+            android:theme="@style/SplashAppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

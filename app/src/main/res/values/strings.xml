@@ -25,18 +25,19 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+
+    <string name="dash_updates">Updates</string>
     <string name="dash_attendance">Attendance</string>
-    <string name="dash_attendance_sub">Check your attendance</string>
     <string name="dash_internals">Internals</string>
-    <string name="dash_internals_sub">Check your Internals</string>
     <string name="dash_notes">Notes</string>
-    <string name="dash_notes_sub">Find your notes here</string>
     <string name="dash_projects">Projects</string>
-    <string name="dash_projects_sub">Share your notes here</string>
+
     <string name="signup_title">Sign Up</string>
     <string name="name_user">Name</string>
     <string name="email">E-mail</string>
     <string name="new_password">New Password</string>
     <string name="confirm_password">Confirm Passsword</string>
     <string name="login_error">Student ID or Password is incorrect</string>
+    <string name="dash_helpdesk">Helpdesk</string>
+
 </resources>

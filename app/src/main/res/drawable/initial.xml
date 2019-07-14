@@ -3,7 +3,7 @@
 <layer-list
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:opacity="opaque">
-    <item android:drawable="@color/Red" />
+    <item android:drawable="@color/grey_black" />
     <item>
         <bitmap
             android:src="@drawable/splash"
