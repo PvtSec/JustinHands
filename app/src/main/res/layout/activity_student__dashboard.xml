@@ -88,8 +88,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:transitionName="@string/dash_updates"
-                        android:id="@+id/bell_icon"
+                        android:transitionName="@string/trans_updates"
+                        android:id="@+id/updates_icon"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center_vertical"
@@ -136,6 +136,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:transitionName="@string/trans_notes"
+                        android:id="@+id/notes_icon"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center_vertical"
@@ -189,6 +191,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:transitionName="@string/trans_attendance"
+                        android:id="@+id/attendance_icon"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center_vertical"
@@ -235,6 +239,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:transitionName="@string/trans_internals"
+                        android:id="@+id/internals_icon"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center_vertical"
@@ -288,6 +294,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:transitionName="@string/trans_projects"
+                        android:id="@+id/projects_icon"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center_vertical"
@@ -334,6 +342,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:transitionName="@string/trans_helpdesk"
+                        android:id="@+id/helpdesk_icon"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center_vertical"

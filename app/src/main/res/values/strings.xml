@@ -40,4 +40,12 @@
     <string name="login_error">Student ID or Password is incorrect</string>
     <string name="dash_helpdesk">Helpdesk</string>
 
+    <string name="trans_updates">update</string>
+    <string name="trans_notes">notes</string>
+    <string name="trans_attendance">attendance</string>
+    <string name="trans_internals">internals</string>
+    <string name="trans_projects">projects</string>
+    <string name="trans_helpdesk">helpdesk</string>
+
+
 </resources>
