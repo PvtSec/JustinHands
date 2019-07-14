@@ -1,9 +1,13 @@
 package just.in.hands;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +26,8 @@ public class Student_Dashboard extends AppCompatActivity
 {
     SharedPreferences student;
     TextView student_id;
+    CardView updates,notes,attendance,internals,projects,helpdesk;
+    LinearLayout whole;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -30,14 +36,21 @@ public class Student_Dashboard extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student__dashboard);
         student_id = findViewById(R.id.userid_dash);
+        updates = findViewById(R.id.updates_card);
+        notes = findViewById(R.id.notes_card);
+        attendance = findViewById(R.id.attendance_card);
+        internals = findViewById(R.id.internals_card);
+        projects = findViewById(R.id.projects_card);
+        helpdesk = findViewById(R.id.helpdesk_card);
 
         student = getSharedPreferences("login", MODE_PRIVATE);
         student_id.setText(student.getString("Student_ID", ""));
         start_fetch();
+        start_cards();
         }
 
-    public void start_fetch()
-    {
+        public void start_fetch()
+        {
         String url="http://yesmsbomber.tk/api/user_data.php";
             RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>()
@@ -73,4 +86,51 @@ public class Student_Dashboard extends AppCompatActivity
 
 
         }
-    }
+
+        public void start_cards()
+        {
+            updates.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v)
+                {
+                    startActivity(new Intent(Student_Dashboard.this, Updates_Activity.class));
+                }
+            });
+            notes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v)
+                {
+                    startActivity(new Intent(Student_Dashboard.this, Notes_Activity.class));
+                }
+            });
+            attendance.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v)
+                {
+                    startActivity(new Intent(Student_Dashboard.this, Attendance_Activity.class));
+                }
+            });
+            internals.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v)
+                {
+                    startActivity(new Intent(Student_Dashboard.this, Internals_Activity.class));
+                }
+            });
+            projects.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v)
+                {
+                    startActivity(new Intent(Student_Dashboard.this, Projects_Activity.class));
+                }
+            });
+            helpdesk.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v)
+                {
+                    startActivity(new Intent(Student_Dashboard.this, Helpdesk_Activity.class));
+                }
+            });
+
+        }
+}
