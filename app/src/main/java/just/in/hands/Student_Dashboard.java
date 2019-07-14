@@ -111,35 +111,55 @@ public class Student_Dashboard extends AppCompatActivity
                 @Override
                 public void onClick(View v)
                 {
-                    startActivity(new Intent(Student_Dashboard.this, Notes_Activity.class));
+                    Intent update =new Intent(Student_Dashboard.this, Updates_Activity.class);
+                    View sharedView = findViewById(R.id.bell_icon);
+                    String transitionName = getString(R.string.dash_updates);
+                    ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(Student_Dashboard.this, sharedView, transitionName);
+                    startActivity(update, transitionActivityOptions.toBundle());
                 }
             });
             attendance.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v)
                 {
-                    startActivity(new Intent(Student_Dashboard.this, Attendance_Activity.class));
+                    Intent update =new Intent(Student_Dashboard.this, Updates_Activity.class);
+                    View sharedView = findViewById(R.id.bell_icon);
+                    String transitionName = getString(R.string.dash_updates);
+                    ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(Student_Dashboard.this, sharedView, transitionName);
+                    startActivity(update, transitionActivityOptions.toBundle());
                 }
             });
             internals.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v)
                 {
-                    startActivity(new Intent(Student_Dashboard.this, Internals_Activity.class));
+                    Intent update =new Intent(Student_Dashboard.this, Updates_Activity.class);
+                    View sharedView = findViewById(R.id.bell_icon);
+                    String transitionName = getString(R.string.dash_updates);
+                    ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(Student_Dashboard.this, sharedView, transitionName);
+                    startActivity(update, transitionActivityOptions.toBundle());
                 }
             });
             projects.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v)
                 {
-                    startActivity(new Intent(Student_Dashboard.this, Projects_Activity.class));
+                    Intent update =new Intent(Student_Dashboard.this, Updates_Activity.class);
+                    View sharedView = findViewById(R.id.bell_icon);
+                    String transitionName = getString(R.string.dash_updates);
+                    ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(Student_Dashboard.this, sharedView, transitionName);
+                    startActivity(update, transitionActivityOptions.toBundle());
                 }
             });
             helpdesk.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v)
                 {
-                    startActivity(new Intent(Student_Dashboard.this, Helpdesk_Activity.class));
+                    Intent update =new Intent(Student_Dashboard.this, Updates_Activity.class);
+                    View sharedView = findViewById(R.id.bell_icon);
+                    String transitionName = getString(R.string.dash_updates);
+                    ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(Student_Dashboard.this, sharedView, transitionName);
+                    startActivity(update, transitionActivityOptions.toBundle());
                 }
             });
 

@@ -6,7 +6,9 @@ import android.os.Bundle;
 public class Internals_Activity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        HideSyS_UI.hideui(getWindow().getDecorView());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_internals);
     }
