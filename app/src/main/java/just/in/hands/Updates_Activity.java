@@ -1,7 +1,5 @@
 package just.in.hands;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -62,8 +60,6 @@ public class Updates_Activity extends AppCompatActivity
                             JSONObject updates_object = new JSONObject(response);
                             JSONArray updates_data = updates_object.getJSONArray("data");
                             update_list(updates_data);
-
-                            //Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
                         }
                         catch (Exception e)
                         {
