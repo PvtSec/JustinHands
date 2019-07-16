@@ -8,6 +8,23 @@
     tools:context=".Updates_Activity">
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/update_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicatorName="BallClipRotateMultipleIndicator"
+            app:indicatorColor="@color/orange"
+            android:visibility="visible"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="110dp"

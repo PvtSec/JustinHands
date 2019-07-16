@@ -13,6 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -26,6 +27,7 @@ public class Updates_Activity extends AppCompatActivity
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    AVLoadingIndicatorView progress;
 
     ArrayList<String> id = new ArrayList<>();
     ArrayList<String> title = new ArrayList<>();
@@ -37,6 +39,7 @@ public class Updates_Activity extends AppCompatActivity
         HideSyS_UI.hideui(getWindow().getDecorView());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_updates);
+        progress = findViewById(R.id.update_progress);
         id.clear();
         title.clear();
         description.clear();
@@ -54,9 +57,9 @@ public class Updates_Activity extends AppCompatActivity
                 @Override
                 public void onResponse(String response)
                 {
+                    progress.hide();
                         try
                         {
-
                             JSONObject updates_object = new JSONObject(response);
                             JSONArray updates_data = updates_object.getJSONArray("data");
                             update_list(updates_data);
