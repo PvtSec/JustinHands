@@ -1,11 +1,27 @@
 package just.in.hands;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Updates_Activity extends AppCompatActivity
 {
@@ -26,64 +42,72 @@ public class Updates_Activity extends AppCompatActivity
         id.clear();
         title.clear();
         description.clear();
+        get_update_list();
+    }
 
-        id.add("1");
-        title.add("CodeCry");
-        description.add("CodeCry is a Code Repository comprised of codes from C, C++, Java, Python, Javascript and many others.");
+    public void get_update_list()
+    {
+        {
+            String url = "http://neutralizer.ml/api/json.php";
+            SharedPreferences student = getSharedPreferences("login", MODE_PRIVATE);
+            final String student_id = student.getString("Student_ID", "");
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response)
+                {
+                        try
+                        {
 
-        id.add("2");
-        title.add("TechRead");
-        description.add("Read, Enjoy And Discover technology news & information");
+                            JSONObject updates_object = new JSONObject(response);
+                            JSONArray updates_data = updates_object.getJSONArray("data");
+                            update_list(updates_data);
 
-        id.add("3");
-        title.add("Techlines");
-        description.add("Techlines brings you Tech News in one line. Its grabs news from various news websites around the world.");
+                            //Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                        }
+                        catch (Exception e)
+                        {
+                            e.printStackTrace();
+                        }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error)
+                {
+                    Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
+                }
+            })
+            {
+                protected Map<String, String> getParams() {
+                    Map<String, String> student_data = new HashMap<>();
+                    student_data.put("StudentId", student_id);
+                    return student_data;
+                }
+            };
+            requestQueue.add(stringRequest);
+        }
+    }
 
-        id.add("4");
-        title.add("Hackers Dictionary");
-        description.add("Dictionary for Hackers. Anyone can contribute. It’s for Hackers, by Hackers!");
-
-        id.add("5");
-        title.add("CyberChoco");
-        description.add("Cyberchoco is an upcoming release, Which is an Online Virtual Lab for Security Professionals.");
-
-        id.add("6");
-        title.add("Tutorials Now");
-        description.add("An Aroliant Training Initiative, android development, web design video tutorials in Tamil & English");
-
-        id.add("7");
-        title.add("Tutorials Now");
-        description.add("An Aroliant Training Initiative, android development, web design video tutorials in Tamil & English");
-
-        id.add("8");
-        title.add("Tutorials Now");
-        description.add("An Aroliant Training Initiative, android development, web design video tutorials in Tamil & English");
-
-        id.add("9");
-        title.add("Tutorials Now");
-        description.add("An Aroliant Training Initiative, android development, web design video tutorials in Tamil & English");
-
-        id.add("10");
-        title.add("Tutorials Now");
-        description.add("An Aroliant Training Initiative, android development, web design video tutorials in Tamil & English");
-
-        id.add("11");
-        title.add("Tutorials Now");
-        description.add("An Aroliant Training Initiative, android development, web design video tutorials in Tamil & English");
-
-        id.add("12");
-        title.add("Tutorials Now");
-        description.add("An Aroliant Training Initiative, android development, web design video tutorials in Tamil & English");
-
-        id.add("13");
-        title.add("Tutorials Now");
-        description.add("An Aroliant Training Initiative, android development, web design video tutorials in Tamil & English");
-
-        id.add("14");
-        title.add("Tutorials Now");
-        description.add("An Aroliant Training Initiative, android development, web design video tutorials in Tamil & English");
-
+    public void update_list(JSONArray data)
+    {
+        try {
+            for (int i = 0; i < data.length(); i++) {
+                JSONObject updates = data.getJSONObject(i);
+                id.add(updates.getString("Id"));
+                title.add(updates.getString("Title"));
+                description.add(updates.getString("Description"));
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
         recyclerView = findViewById(R.id.recycler_view);
+        mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+
+        mAdapter = new RecyclerAdapter(getApplicationContext(), id, title, description);
+        recyclerView.setAdapter(mAdapter);recyclerView = findViewById(R.id.recycler_view);
         mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
