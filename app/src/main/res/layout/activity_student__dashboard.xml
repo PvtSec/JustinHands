@@ -386,7 +386,8 @@
         android:text="• Notifications •"
         android:gravity="center"/>
     <TextView
-        android:text="START | lunch 20.00 | Dinner 60.00 | Travel 60.00 | Doctor 5000.00 | lunch 20.00 | Dinner 60.00 | Travel 60.00 | Doctor 5000.00 | END"
+        android:id="@+id/dash_notify"
+        android:text=" | Verison 1.0.245 | Updated the Updates Section with online data | Adding Cards to Notes Section for Categorized notes | Signup section require more security updates | App is in bleeding edge version | Bugs are numerous | "
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:singleLine="true"
