@@ -46,6 +46,10 @@
     <string name="trans_internals">internals</string>
     <string name="trans_projects">projects</string>
     <string name="trans_helpdesk">helpdesk</string>
+    <string name="sub1">Electronics and Communication Engg.</string>
+    <string name="sub2">Electrical and Electronics Engg.</string>
+    <string name="sub3">Computer Science and Engg.</string>
+    <string name="sub4">Mechanical Engineering</string>
 
 
 </resources>

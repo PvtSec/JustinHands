@@ -60,7 +60,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/whole_click"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
