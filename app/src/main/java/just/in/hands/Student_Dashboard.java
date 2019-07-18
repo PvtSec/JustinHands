@@ -18,6 +18,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,7 +28,7 @@ import java.util.Map;
 public class Student_Dashboard extends AppCompatActivity
 {
     SharedPreferences student;
-    TextView student_id,student_name;
+    TextView student_id,student_name,student_dept,dash_notify;
     CardView updates,notes,attendance,internals,projects,helpdesk;
     LinearLayout whole;
 
@@ -37,6 +40,9 @@ public class Student_Dashboard extends AppCompatActivity
         setContentView(R.layout.activity_student__dashboard);
         student_name=findViewById(R.id.username_dash);
         student_id = findViewById(R.id.userid_dash);
+        student_dept = findViewById(R.id.dept_dash);
+        dash_notify = findViewById(R.id.dash_notification);
+
         updates = findViewById(R.id.updates_card);
         notes = findViewById(R.id.notes_card);
         attendance = findViewById(R.id.attendance_card);
@@ -45,7 +51,7 @@ public class Student_Dashboard extends AppCompatActivity
         helpdesk = findViewById(R.id.helpdesk_card);
 
         student = getSharedPreferences("login", MODE_PRIVATE);
-        student_id.setText(student.getString("Student_ID", ""));
+        //student_id.setText(student.getString("Student_ID", ""));
 
 
         start_fetch();
@@ -63,7 +69,17 @@ public class Student_Dashboard extends AppCompatActivity
                 {
                     try
                     {
-                        student_name.setText(response);
+                        JSONObject dash_objects = new JSONObject(response);
+                        JSONArray dash_data = dash_objects.getJSONArray("data");
+                        JSONObject dash_updates = dash_data.getJSONObject(0);
+                        String dash_status=dash_updates.getString("Status");
+                        if(dash_status.equals("Success"))
+                        {
+                            student_name.setText(dash_updates.getString("Name"));
+                            student_id.setText(dash_updates.getString("Unique_ID"));
+                            student_dept.setText(dash_updates.getString("Department"));
+                            dash_notify.setText(dash_updates.getString("Notification"));
+                        }
                     }
                     catch (Exception e)
                     {
@@ -81,7 +97,7 @@ public class Student_Dashboard extends AppCompatActivity
                 protected Map<String, String> getParams()
                 {
                     Map<String, String> SignInData = new HashMap<>();
-                    SignInData.put("userid", student_id.getText().toString());
+                    SignInData.put("userid", student.getString("Student_ID", ""));
                     return SignInData;
                 }
             };
