@@ -1,5 +1,6 @@
 package just.in.hands;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -16,7 +17,7 @@ public class Notes_Activity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
 
-        first_year = findViewById(R.id.First_year);
+        first_year = findViewById(R.id.First_Year);
         third_sem = findViewById(R.id.Semester_3);
         fourth_sem = findViewById(R.id.Semester_4);
         fifth_sem = findViewById(R.id.Semester_5);
@@ -30,8 +31,9 @@ public class Notes_Activity extends AppCompatActivity
     {
         first_year.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View v)
+            {
+                startActivity(new Intent(Notes_Activity.this, NotesLoader.class));
             }
         });
         third_sem.setOnClickListener(new View.OnClickListener() {

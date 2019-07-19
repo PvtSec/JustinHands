@@ -15,7 +15,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     ArrayList<String> description = new ArrayList<>();
     Context context;
 
-    public RecyclerAdapter(Context applicationContext, ArrayList<String> id, ArrayList<String> title, ArrayList<String> description) {
+    public RecyclerAdapter(Context applicationContext, ArrayList<String> id, ArrayList<String> title, ArrayList<String> description)
+    {
 
         this.context = applicationContext;
         this.id = id;

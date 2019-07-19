@@ -11,6 +11,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.wang.avi.AVLoadingIndicatorView;
@@ -22,34 +23,31 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Updates_Activity extends AppCompatActivity
+public class NotesLoader extends AppCompatActivity
 {
-    private RecyclerView recyclerView;
+    private RecyclerView notes_View;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    AVLoadingIndicatorView progress;
+    AVLoadingIndicatorView note_progress;
 
-    ArrayList<String> id = new ArrayList<>();
-    ArrayList<String> title = new ArrayList<>();
-    ArrayList<String> description = new ArrayList<>();
+    ArrayList<String> course_id = new ArrayList<>();
+    ArrayList<String> course_name = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        HideSyS_UI.hideui(getWindow().getDecorView());
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_updates);
-        progress = findViewById(R.id.update_progress);
-        id.clear();
-        title.clear();
-        description.clear();
-        get_update_list();
-    }
+        setContentView(R.layout.activity_notes_loader);
+        note_progress = findViewById(R.id.notes_progress);
+        course_id.clear();
+        course_name.clear();
 
-    public void get_update_list()
+        get_notes_list();
+    }
+    public void get_notes_list()
     {
         {
-            String url = "http://neutralizer.ml/api/json.php";
+            String url = "http://neutralizer.ml/api/notes_data.php";
             SharedPreferences student = getSharedPreferences("login", MODE_PRIVATE);
             final String student_id = student.getString("Student_ID", "");
             RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -57,17 +55,17 @@ public class Updates_Activity extends AppCompatActivity
                 @Override
                 public void onResponse(String response)
                 {
-                    progress.hide();
-                        try
-                        {
-                            JSONObject updates_object = new JSONObject(response);
-                            JSONArray updates_data = updates_object.getJSONArray("data");
-                            update_list(updates_data);
-                        }
-                        catch (Exception e)
-                        {
-                            e.printStackTrace();
-                        }
+                    note_progress.hide();
+                    try
+                    {
+                        JSONObject notes_object = new JSONObject(response);
+                        JSONArray notes_data = notes_object.getJSONArray("data");
+                        notes_list(notes_data);
+                    }
+                    catch (Exception e)
+                    {
+                        e.printStackTrace();
+                    }
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -79,38 +77,37 @@ public class Updates_Activity extends AppCompatActivity
             {
                 protected Map<String, String> getParams() {
                     Map<String, String> student_data = new HashMap<>();
-                    student_data.put("StudentId", student_id);
+                    student_data.put("StudentId", "null");
                     return student_data;
                 }
             };
             requestQueue.add(stringRequest);
         }
     }
-
-    public void update_list(JSONArray data)
+    public void notes_list(JSONArray data_notes)
     {
         try {
-            for (int i = 0; i < data.length(); i++) {
-                JSONObject updates = data.getJSONObject(i);
-                id.add(updates.getString("Id"));
-                title.add(updates.getString("Title"));
-                description.add(updates.getString("Description"));
+            for (int i = 0; i < data_notes.length(); i++) {
+                JSONObject updates = data_notes.getJSONObject(i);
+                course_id.add(updates.getString("Id"));
+                course_name.add(updates.getString("Course"));
             }
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
-        recyclerView = findViewById(R.id.updates_recycle);
+        notes_View = findViewById(R.id.notes_recycle);
         mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
+        notes_View.setLayoutManager(mLayoutManager);
 
-        mAdapter = new RecyclerAdapter(getApplicationContext(), id, title, description);
-        recyclerView.setAdapter(mAdapter);recyclerView = findViewById(R.id.updates_recycle);
+        mAdapter = new NotesRecyclerAdapter(getApplicationContext(), course_id, course_name);
+        notes_View.setAdapter(mAdapter);
+        notes_View = findViewById(R.id.notes_recycle);
         mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
+        notes_View.setLayoutManager(mLayoutManager);
 
-        mAdapter = new RecyclerAdapter(getApplicationContext(), id, title, description);
-        recyclerView.setAdapter(mAdapter);
+        mAdapter = new NotesRecyclerAdapter(getApplicationContext(), course_id, course_name);
+        notes_View.setAdapter(mAdapter);
     }
 }
