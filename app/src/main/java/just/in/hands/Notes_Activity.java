@@ -33,43 +33,63 @@ public class Notes_Activity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                startActivity(new Intent(Notes_Activity.this, NotesLoader.class));
+                Intent note_first =new Intent(Notes_Activity.this, NotesLoader.class);
+                note_first.putExtra("section","first");
+                startActivity(note_first);
             }
         });
         third_sem.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View v)
+            {
+                Intent note_third =new Intent(Notes_Activity.this, NotesLoader.class);
+                note_third.putExtra("section","third");
+                startActivity(note_third);
             }
         });
         fourth_sem.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View v)
+            {
+                Intent note_fourth =new Intent(Notes_Activity.this, NotesLoader.class);
+                note_fourth.putExtra("section","fourth");
+                startActivity(note_fourth);
             }
         });
         fifth_sem.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View v)
+            {
+                Intent note_fifth =new Intent(Notes_Activity.this, NotesLoader.class);
+                note_fifth.putExtra("section","fifth");
+                startActivity(note_fifth);
             }
         });
         sixth_sem.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View v)
+            {
+                Intent note_sixth =new Intent(Notes_Activity.this, NotesLoader.class);
+                note_sixth.putExtra("section","sixth");
+                startActivity(note_sixth);
             }
         });
         seventh_sem.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View v)
+            {
+                Intent note_seventh =new Intent(Notes_Activity.this, NotesLoader.class);
+                note_seventh.putExtra("section","seventh");
+                startActivity(note_seventh);
             }
         });
         eighth_sem.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View v)
+            {
+                Intent note_eighth =new Intent(Notes_Activity.this, NotesLoader.class);
+                note_eighth.putExtra("section","eighth");
+                startActivity(note_eighth);
             }
         });
     }

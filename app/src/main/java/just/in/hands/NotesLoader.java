@@ -1,5 +1,6 @@
 package just.in.hands;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,6 +34,8 @@ public class NotesLoader extends AppCompatActivity
     ArrayList<String> course_id = new ArrayList<>();
     ArrayList<String> course_name = new ArrayList<>();
 
+    String sem_year;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -41,6 +44,8 @@ public class NotesLoader extends AppCompatActivity
         note_progress = findViewById(R.id.notes_progress);
         course_id.clear();
         course_name.clear();
+        Intent note_intent = getIntent();
+        sem_year = note_intent.getStringExtra("section");
 
         get_notes_list();
     }
@@ -77,7 +82,7 @@ public class NotesLoader extends AppCompatActivity
             {
                 protected Map<String, String> getParams() {
                     Map<String, String> student_data = new HashMap<>();
-                    student_data.put("StudentId", "null");
+                    student_data.put("Sem_Year_id", sem_year);
                     return student_data;
                 }
             };
