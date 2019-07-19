@@ -46,10 +46,16 @@
     <string name="trans_internals">internals</string>
     <string name="trans_projects">projects</string>
     <string name="trans_helpdesk">helpdesk</string>
-    <string name="sub1">Electronics and Communication Engg.</string>
-    <string name="sub2">Electrical and Electronics Engg.</string>
-    <string name="sub3">Computer Science and Engg.</string>
-    <string name="sub4">Mechanical Engineering</string>
+
+    <string name="common_subjects">First Year</string>
+    <string name="sem3">Semester_3</string>
+    <string name="sem4">Semester_4</string>
+    <string name="sem5">Semester_5</string>
+    <string name="sem6">Semester_6</string>
+    <string name="sem7">Semester_7</string>
+    <string name="sem8">Semester_8</string>
+
+
 
 
 </resources>
