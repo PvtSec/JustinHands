@@ -1,6 +1,7 @@
 package just.in.hands;
 
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -177,10 +178,13 @@ public class Student_Dashboard extends AppCompatActivity
                 @Override
                 public void onClick(View v)
                 {
-                    student.edit().clear();
-                    student.edit().commit();
                     startActivity(new Intent(Student_Dashboard.this,Initiate.class));
+                    SharedPreferences preferences =getSharedPreferences("login", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.clear();
+                    editor.commit();
                     Toast.makeText(getApplicationContext(),"Logout Successful",Toast.LENGTH_SHORT).show();
+                    finish();
                 }
             });
 

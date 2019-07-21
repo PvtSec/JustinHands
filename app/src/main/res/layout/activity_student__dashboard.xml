@@ -399,15 +399,13 @@
     <RelativeLayout
         android:gravity="bottom"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="100dp">
     <TextView
         android:id="@+id/logout_dashboard"
         android:clickable="true"
-        android:paddingBottom="20dp"
         android:layout_alignParentTop="true"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
         android:text="@string/logout"
         android:gravity="center"/>
     </RelativeLayout>
