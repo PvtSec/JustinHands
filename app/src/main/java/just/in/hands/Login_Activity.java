@@ -52,6 +52,8 @@ public class Login_Activity extends AppCompatActivity
         loginError=findViewById(R.id.login_error);
         UserData=getSharedPreferences("login",MODE_PRIVATE);
 
+        username.setFilters(new InputFilter[] {new InputFilter.AllCaps()});
+
 
         if(UserData.getBoolean("isLogin", false))
         {
@@ -59,8 +61,6 @@ public class Login_Activity extends AppCompatActivity
             finish();
         }
 
-
-        username.setFilters(new InputFilter[] {new InputFilter.AllCaps()});
 
         signup.setOnClickListener(new View.OnClickListener()
         {

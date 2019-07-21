@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public class Student_Dashboard extends AppCompatActivity
 {
     SharedPreferences student;
-    TextView student_id,student_name,student_dept,dash_notify;
+    TextView student_id,student_name,student_dept,dash_notify,logout_dash;
     CardView updates,notes,attendance,internals,projects,helpdesk;
     String stat;
 
@@ -37,6 +37,7 @@ public class Student_Dashboard extends AppCompatActivity
         student_id = findViewById(R.id.userid_dash);
         student_dept = findViewById(R.id.dept_dash);
         dash_notify = findViewById(R.id.dash_notification);
+        logout_dash = findViewById(R.id.logout_dashboard);
 
         updates = findViewById(R.id.updates_card);
         notes = findViewById(R.id.notes_card);
@@ -168,6 +169,18 @@ public class Student_Dashboard extends AppCompatActivity
                     String helpdesk_trans = getString(R.string.trans_helpdesk);
                     ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(Student_Dashboard.this, helpdesk_view, helpdesk_trans);
                     startActivity(helpdesks, transitionActivityOptions.toBundle());
+                }
+            });
+
+            logout_dash.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    student.edit().clear();
+                    student.edit().commit();
+                    startActivity(new Intent(Student_Dashboard.this,Initiate.class));
+                    Toast.makeText(getApplicationContext(),"Logout Successful",Toast.LENGTH_SHORT).show();
                 }
             });
 
