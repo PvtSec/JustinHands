@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,14 +14,10 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class Student_Dashboard extends AppCompatActivity
@@ -30,7 +25,7 @@ public class Student_Dashboard extends AppCompatActivity
     SharedPreferences student;
     TextView student_id,student_name,student_dept,dash_notify;
     CardView updates,notes,attendance,internals,projects,helpdesk;
-    LinearLayout whole;
+    String stat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -58,52 +53,53 @@ public class Student_Dashboard extends AppCompatActivity
         start_cards();
         }
 
-        public void start_fetch()
+        private void start_fetch()
         {
-        String url="http://neutralizer.ml/api/user_data.php";
-            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>()
+            String url="http://neutralizer.ml/api/user_data.php";
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            JSONObject userdataObject = new JSONObject();
+            try
             {
-                @Override
-                public void onResponse(String response)
-                {
-                    try
+                userdataObject.put("userID", student.getString("Student_ID", ""));
+            } catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+            JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
+                    url, userdataObject,
+                    new Response.Listener<JSONObject>()
                     {
-                        JSONObject dash_objects = new JSONObject(response);
-                        JSONArray dash_data = dash_objects.getJSONArray("data");
-                        JSONObject dash_updates = dash_data.getJSONObject(0);
-                        String dash_status=dash_updates.getString("Status");
-                        if(dash_status.equals("Success"))
+                        @Override
+                        public void onResponse(JSONObject response)
                         {
-                            student_name.setText(dash_updates.getString("Name"));
-                            student_id.setText(dash_updates.getString("Unique_ID"));
-                            student_dept.setText(dash_updates.getString("Department"));
-                            dash_notify.setText(dash_updates.getString("Notification"));
+                            try {
+                                stat = response.getString("Status");
+                                if (stat.equals("Success"))
+                                {
+                                    student_name.setText(response.getString("Name"));
+                                    student_id.setText(response.getString("Unique_ID"));
+                                    student_dept.setText(response.getString("Department"));
+                                    dash_notify.setText(response.getString("Notification"));
+                                }
+                                else
+                                {
+                                    Toast.makeText(getApplicationContext(),"User Data Fetch Failed",Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                e.printStackTrace();
+                            }
                         }
-                    }
-                    catch (Exception e)
-                    {
-                        e.printStackTrace();
-                    }
-                }
-            }, new Response.ErrorListener() {
+                    }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error)
                 {
+                    error.printStackTrace();
                     Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
                 }
-            })
-            {
-                protected Map<String, String> getParams()
-                {
-                    Map<String, String> SignInData = new HashMap<>();
-                    SignInData.put("userid", student.getString("Student_ID", ""));
-                    return SignInData;
-                }
-            };
-            requestQueue.add(stringRequest);
-
-
+            });
+            requestQueue.add(jsonObjReq);
         }
 
         public void start_cards()

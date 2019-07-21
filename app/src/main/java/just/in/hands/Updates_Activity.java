@@ -51,9 +51,8 @@ public class Updates_Activity extends AppCompatActivity
         {
             String url = "http://neutralizer.ml/api/json.php";
             SharedPreferences student = getSharedPreferences("login", MODE_PRIVATE);
-            final String student_id = student.getString("Student_ID", "");
             RequestQueue requestQueue = Volley.newRequestQueue(this);
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response)
                 {
@@ -75,14 +74,7 @@ public class Updates_Activity extends AppCompatActivity
                 {
                     Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
                 }
-            })
-            {
-                protected Map<String, String> getParams() {
-                    Map<String, String> student_data = new HashMap<>();
-                    student_data.put("StudentId", student_id);
-                    return student_data;
-                }
-            };
+            });
             requestQueue.add(stringRequest);
         }
     }

@@ -89,15 +89,18 @@ public class Signup_activity extends AppCompatActivity
             public void onResponse(String response)
             {
                 signupBtn.revertAnimation();
-                if (response.equals("Signup Success")) {
-                    try {
+                if (response.equals("Signup Success"))
+                {
+                    try
+                    {
                         Intent resultIntent = new Intent();
                         resultIntent.putExtra("STUDENT_ID", pass_studentId);
                         setResult(Activity.RESULT_OK, resultIntent);
                         finish();
                         Toast.makeText(getApplicationContext(), "Signup Successfull, Login Now", Toast.LENGTH_SHORT).show();
 
-                    } catch (Exception e) {
+                    } catch (Exception e)
+                    {
                         e.printStackTrace();
                     }
                 } else {

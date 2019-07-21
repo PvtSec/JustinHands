@@ -15,11 +15,12 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import java.util.HashMap;
-import java.util.Map;
+import org.json.JSONObject;
+
 
 import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 
@@ -35,6 +36,7 @@ public class Login_Activity extends AppCompatActivity
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
     private String url="http://neutralizer.ml/api/signin.php";
+    String stat;
 
 
     @Override
@@ -106,49 +108,49 @@ public class Login_Activity extends AppCompatActivity
 
     private void sendLoginData()
     {
-        requestQueue = Volley.newRequestQueue(this);
-        stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>()
-        {
-            @Override
-            public void onResponse(String response)
-            {
-                loginBtn.revertAnimation();
-                if (response.equals("Login Success"))
-                {
-                    try {
-                        UserData.edit().putBoolean("isLogin", true).apply();
-                        UserData.edit().putString("Student_ID", user).apply();
-                        startActivity(new Intent(Login_Activity.this, Student_Dashboard.class));
-                        finish();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                } else
-                {
-                    loginError.setText(response);
-                    loginError.setVisibility(View.VISIBLE);
-                    //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+            requestQueue = Volley.newRequestQueue(this);
+            JSONObject signinObject = new JSONObject();
+            try {
+                signinObject.put("user", user);
+                signinObject.put("passwd", pass);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+            JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
+                    url, signinObject,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response)
+                        {
+                            try {
+                                stat = response.getString("Status");
+                                loginBtn.revertAnimation();
+                                if (stat.equals("Success")) {
+                                    UserData.edit().putBoolean("isLogin", true).apply();
+                                    UserData.edit().putString("Student_ID", user).apply();
+                                    startActivity(new Intent(Login_Activity.this, Student_Dashboard.class));
+                                    finish();
+                                } else {
+                                    loginError.setText(stat);
+                                    loginError.setVisibility(View.VISIBLE);
+                                }
+                            }
+                             catch (Exception e)
+                            {
+                            e.printStackTrace();
+                             }
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+
                 }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error)
-            {
-                loginBtn.revertAnimation();
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
-            }
-        })
-        {
-            protected Map<String, String> getParams()
-            {
-                Map<String, String> SignInData = new HashMap<>();
-                SignInData.put("user", user);
-                SignInData.put("passwd", pass);
-                return SignInData;
-            }
-        };
-        requestQueue.add(stringRequest);
-    }
+            });
+            requestQueue.add(jsonObjReq);
+        }
 
 
 
