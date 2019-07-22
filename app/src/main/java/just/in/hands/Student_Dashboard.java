@@ -4,10 +4,13 @@ import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v4.view.ViewCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +37,8 @@ public class Student_Dashboard extends AppCompatActivity
         HideSyS_UI.hideui(getWindow().getDecorView());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student__dashboard);
+
+
         student_name=findViewById(R.id.username_dash);
         student_id = findViewById(R.id.userid_dash);
         student_dept = findViewById(R.id.dept_dash);
@@ -54,6 +59,7 @@ public class Student_Dashboard extends AppCompatActivity
         start_fetch();
         start_cards();
         }
+
 
         private void start_fetch()
         {
@@ -103,7 +109,6 @@ public class Student_Dashboard extends AppCompatActivity
             });
             requestQueue.add(jsonObjReq);
         }
-
         public void start_cards()
         {
             updates.setOnClickListener(new View.OnClickListener() {
