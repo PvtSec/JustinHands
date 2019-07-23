@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -24,6 +26,8 @@ import java.util.Map;
 
 public class Updates_Activity extends AppCompatActivity
 {
+    ImageView exit_updates;
+
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -40,6 +44,13 @@ public class Updates_Activity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_updates);
         progress = findViewById(R.id.update_progress);
+        exit_updates = findViewById(R.id.go_back);
+        exit_updates.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         id.clear();
         title.clear();
         description.clear();

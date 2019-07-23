@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Just In Hands</string>
+    <string name="app_name" translatable="false">Just In Hands</string>
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
     <string name="login_button">submit</string>
@@ -11,14 +11,14 @@
     <string name="student_signup">Sign Up</string>
     <string name="new_student">New user?</string>
     <string name="old_student">Already Registered?</string>
-    <string name="brand_logo">Digi:GEC</string>
+    <string name="brand_logo" translatable="false">Digi:GEC</string>
     <string name="title_activity_dash">Digi:GEC</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings" translatable="false">Settings</string>
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
@@ -26,19 +26,19 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
 
-    <string name="dash_updates">Updates</string>
-    <string name="dash_attendance">Attendance</string>
-    <string name="dash_internals">Internals</string>
-    <string name="dash_notes">Notes</string>
-    <string name="dash_projects">Projects</string>
+    <string name="dash_updates" translatable="false">Updates</string>
+    <string name="dash_attendance" translatable="false">Attendance</string>
+    <string name="dash_internals" translatable="false">Internals</string>
+    <string name="dash_notes" translatable="false">Notes</string>
+    <string name="dash_projects" translatable="false">Projects</string>
 
     <string name="signup_title">Sign Up</string>
     <string name="name_user">Name</string>
     <string name="email">E-mail</string>
     <string name="new_password">New Password</string>
-    <string name="confirm_password">Confirm Passsword</string>
+    <string name="confirm_password" translatable="false">Confirm Passsword</string>
     <string name="login_error">Student ID or Password is incorrect</string>
-    <string name="dash_helpdesk">Helpdesk</string>
+    <string name="dash_helpdesk" translatable="false">Helpdesk</string>
 
     <string name="trans_updates">update</string>
     <string name="trans_notes">notes</string>

@@ -5,10 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.ImageView;
 
 public class Notes_Activity extends AppCompatActivity
 {
     CardView first_year, third_sem,fourth_sem,fifth_sem,sixth_sem,seventh_sem,eighth_sem;
+    ImageView exit_notes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -24,6 +26,13 @@ public class Notes_Activity extends AppCompatActivity
         sixth_sem = findViewById(R.id.Semester_6);
         seventh_sem = findViewById(R.id.Semester_7);
         eighth_sem = findViewById(R.id.Semester_8);
+        exit_notes = findViewById(R.id.go_back);
+        exit_notes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         start_note_clicks();
     }
 

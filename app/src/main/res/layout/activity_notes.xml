@@ -273,29 +273,41 @@
 
     </LinearLayout>
 </ScrollView>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="48dp"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout">
 
         <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
             app:cardCornerRadius="15dp"
-            app:cardElevation="3dp">
+            app:cardElevation="3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout">
 
             <ImageView
-                android:transitionName="@string/trans_notes"
                 android:id="@+id/bell_icoon"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/notes" />
+                android:src="@drawable/notes"
+                android:transitionName="@string/trans_notes" />
         </android.support.v7.widget.CardView>
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/go_back"
+            android:clickable="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/back_button"
+            android:tint="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/cardView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

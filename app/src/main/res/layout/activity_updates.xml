@@ -8,19 +8,19 @@
     tools:context=".Updates_Activity">
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <com.wang.avi.AVLoadingIndicatorView
             android:id="@+id/update_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:indicatorName="BallClipRotateMultipleIndicator"
-            app:indicatorColor="@color/orange"
             android:visibility="visible"
-            />
+            app:indicatorColor="@color/orange"
+            app:indicatorName="BallClipRotateMultipleIndicator" />
 
     </LinearLayout>
 
@@ -51,29 +51,40 @@
         </android.support.v7.widget.RecyclerView>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="35dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="20dp"
         android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout">
 
-        <android.support.v7.widget.CardView
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/bell_icoon"
+            android:layout_width="50dp"
             android:layout_height="50dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="3dp">
-
-            <ImageView
-                android:id="@+id/bell_icoon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/updates"
-                android:transitionName="@string/trans_updates" />
-        </android.support.v7.widget.CardView>
-    </LinearLayout>
+            android:src="@drawable/updates"
+            android:transitionName="@string/trans_updates" />
+    </android.support.v7.widget.CardView>
+    <ImageView
+        android:id="@+id/go_back"
+        android:clickable="true"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/back_button"
+        android:tint="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/cardView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
