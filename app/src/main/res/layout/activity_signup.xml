@@ -100,6 +100,15 @@
                         <View
                             android:layout_width="fill_parent"
                             android:layout_height="10.0dip" />
+                        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                            android:id="@+id/signup_course"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Select Department"
+                            android:textColorHint="#DC000000" />
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="10.0dip" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

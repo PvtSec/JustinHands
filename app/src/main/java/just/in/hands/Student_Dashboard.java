@@ -53,7 +53,6 @@ public class Student_Dashboard extends AppCompatActivity
         helpdesk = findViewById(R.id.helpdesk_card);
 
         student = getSharedPreferences("login", MODE_PRIVATE);
-        //student_id.setText(student.getString("Student_ID", ""));
 
 
         start_fetch();

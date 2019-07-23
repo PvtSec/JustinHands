@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".NotesLoader"></activity>
-        <activity android:name=".Signup_activity" />
+        <activity android:name=".Signup_activity" android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".Login_Activity" />
         <activity android:name=".Student_Dashboard" />
         <activity android:name=".Helpdesk_Activity" />

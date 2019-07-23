@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +29,9 @@ public class Signup_activity extends AppCompatActivity
     TextView signin;
     EditText name,studentId,newPass,confirmPass;
     CircularProgressButton signupBtn;
-    String pass_name,pass_studentId,pass_password;
+    String pass_name,pass_studentId,pass_password,pass_course;
+    String[] course_list = {"E.C.E","E.E.E","M.E","C.S.E"};
+    MaterialBetterSpinner CourseList;
 
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
@@ -39,6 +43,7 @@ public class Signup_activity extends AppCompatActivity
         HideSyS_UI.hideui(getWindow().getDecorView());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
         signin=findViewById(R.id.signin);
         name=findViewById(R.id.name_entry);
         studentId=findViewById(R.id.student_id);
@@ -46,8 +51,11 @@ public class Signup_activity extends AppCompatActivity
         confirmPass=findViewById(R.id.confirm_password);
         signupBtn=findViewById(R.id.signup_button);
 
-        studentId.setFilters(new InputFilter[] {new InputFilter.AllCaps()});
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, course_list);
+        CourseList = findViewById(R.id.signup_course);
+        CourseList.setAdapter(arrayAdapter);
 
+        studentId.setFilters(new InputFilter[] {new InputFilter.AllCaps()});
 
         signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,11 +67,12 @@ public class Signup_activity extends AppCompatActivity
                     pass_name=name.getText().toString();
                     pass_studentId=studentId.getText().toString();
                     pass_password=confirmPass.getText().toString();
+                    pass_course = CourseList.getText().toString();
                     sendSignupData();
                 }
                 else
                 {
-                    Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Passwords do not Match",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -119,6 +128,7 @@ public class Signup_activity extends AppCompatActivity
                 Map<String, String> SignUpData = new HashMap<>();
                 SignUpData.put("Name", pass_name);
                 SignUpData.put("StudentId", pass_studentId);
+                SignUpData.put("Course", pass_course);
                 SignUpData.put("Password", pass_password);
                 return SignUpData;
             }
