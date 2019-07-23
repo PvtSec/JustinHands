@@ -8,7 +8,7 @@
 
     <View
         android:transformPivotY="2dp"
-        android:background="@drawable/valley_intro"
+        android:background="@color/blue_1"
         android:layout_width="fill_parent"
         android:layout_height="200.0dip"
         android:layout_gravity="center"/>

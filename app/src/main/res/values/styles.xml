@@ -7,6 +7,7 @@
         <item name="android:fontFamily">@font/font</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
     <style name="SplashAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
