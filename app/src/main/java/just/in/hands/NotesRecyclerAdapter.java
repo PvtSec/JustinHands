@@ -1,10 +1,13 @@
 package just.in.hands;
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -26,9 +29,12 @@ public class NotesRecyclerAdapter extends RecyclerView.Adapter<NotesRecyclerAdap
     public class ViewHolder extends RecyclerView.ViewHolder
     {
         public TextView course_text;
-        public ViewHolder(View itemView) {
+        public CardView course_card;
+        public ViewHolder(View itemView)
+        {
             super(itemView);
-            course_text = itemView.findViewById(R.id.course_name);
+            course_text = itemView.findViewById(R.id.course_names);
+            course_card = itemView.findViewById(R.id.note_cards);
         }
     }
 
@@ -41,13 +47,20 @@ public class NotesRecyclerAdapter extends RecyclerView.Adapter<NotesRecyclerAdap
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position)
+    public void onBindViewHolder(ViewHolder holder, final int position)
     {
         holder.course_text.setText(course_name.get(position));
+        holder.course_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context,course_name.get(position),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
         return course_id.size();
     }
 }
