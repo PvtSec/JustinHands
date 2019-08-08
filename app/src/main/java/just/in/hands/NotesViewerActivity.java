@@ -2,6 +2,7 @@ package just.in.hands;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -72,7 +73,9 @@ public class NotesViewerActivity extends AppCompatActivity {
     }
     public void download_pdf()
         {
-            String url = "http://neutralizer.ml/sample.pdf";
+            Intent intent = getIntent();
+            String note_name = intent.getExtras().getString("Subject");
+            String url = "http://neutralizer.ml/"+note_name;
             String dirPath = this.getFilesDir().getAbsolutePath();
             String Filename = "sample.pdf";
             int downloadId = PRDownloader.download(url, dirPath, Filename)

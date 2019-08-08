@@ -1,5 +1,4 @@
 package just.in.hands;
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
@@ -57,6 +56,7 @@ public class NotesRecyclerAdapter extends RecyclerView.Adapter<NotesRecyclerAdap
                 Toast.makeText(context,course_name.get(position),Toast.LENGTH_SHORT).show();
                 Intent note =new Intent(context, NotesViewerActivity.class);
                 note.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                note.putExtra("Subject",course_name.get(position));
                 context.startActivity(note);
             }
         });
