@@ -39,6 +39,7 @@ import java.util.Date;
 
 public class NotesViewerActivity extends AppCompatActivity {
     PDFView note_pdf;
+    String note_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +48,13 @@ public class NotesViewerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notes_viewer);
         note_pdf = findViewById(R.id.note_view);
         PRDownloader.initialize(getApplicationContext());
+        Intent intent = getIntent();
+        note_name = intent.getExtras().getString("Subject");
         check_exist();
     }
 
     public void check_exist() {
-        String path = this.getFilesDir().getAbsolutePath() + "/sample.pdf";
+        String path = this.getFilesDir().getAbsolutePath() + "/"+note_name+".pdf";
         File files = new File(path);
         if (files.exists()) {
             note_pdf.fromFile(files).load();
@@ -64,8 +67,6 @@ public class NotesViewerActivity extends AppCompatActivity {
         ConnectivityManager internet = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         if (internet.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 internet.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
-            //Toast.makeText(getApplicationContext(), this.getFilesDir().getAbsolutePath(), Toast.LENGTH_SHORT).show();
-            String url = "http://neutralizer.ml/sample.pdf";
             download_pdf();
         } else {
             Toast.makeText(getApplicationContext(), "Check Internet Connection\nAnd Restart the App.", Toast.LENGTH_SHORT).show();
@@ -73,11 +74,9 @@ public class NotesViewerActivity extends AppCompatActivity {
     }
     public void download_pdf()
         {
-            Intent intent = getIntent();
-            String note_name = intent.getExtras().getString("Subject");
-            String url = "http://neutralizer.ml/"+note_name;
+            String url = "http://neutralizer.ml/"+note_name+".pdf";
             String dirPath = this.getFilesDir().getAbsolutePath();
-            String Filename = "sample.pdf";
+            String Filename = note_name+".pdf";
             int downloadId = PRDownloader.download(url, dirPath, Filename)
                     .build()
                     .setOnStartOrResumeListener(new OnStartOrResumeListener() {
