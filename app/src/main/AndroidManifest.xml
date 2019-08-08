@@ -4,6 +4,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,8 +16,11 @@
         android:roundIcon="@drawable/logo_small"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NotesLoader"></activity>
-        <activity android:name=".Signup_activity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".NotesViewerActivity"></activity>
+        <activity android:name=".NotesLoader" />
+        <activity
+            android:name=".Signup_activity"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Login_Activity" />
         <activity android:name=".Student_Dashboard" />
         <activity android:name=".Helpdesk_Activity" />

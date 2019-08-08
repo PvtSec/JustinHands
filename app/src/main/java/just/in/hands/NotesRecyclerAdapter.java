@@ -1,5 +1,7 @@
 package just.in.hands;
+import android.app.ActivityOptions;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -53,6 +55,9 @@ public class NotesRecyclerAdapter extends RecyclerView.Adapter<NotesRecyclerAdap
             @Override
             public void onClick(View v) {
                 Toast.makeText(context,course_name.get(position),Toast.LENGTH_SHORT).show();
+                Intent note =new Intent(context, NotesViewerActivity.class);
+                note.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(note);
             }
         });
     }
