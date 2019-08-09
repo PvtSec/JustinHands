@@ -55,6 +55,7 @@
     <string name="sem7">Semester 7</string>
     <string name="sem8">Semester 8</string>
     <string name="logout">LOGOUT</string>
+    <string name="note_notFound">Notes not found. Kindly Contact Administrator</string>
 
 
 </resources>
