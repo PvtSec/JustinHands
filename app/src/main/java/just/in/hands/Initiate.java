@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.onesignal.OneSignal;
+
 public class Initiate extends AppCompatActivity
 {
 
@@ -18,6 +20,10 @@ public class Initiate extends AppCompatActivity
     {
         HideSyS_UI.hideui(getWindow().getDecorView());
         super.onCreate(savedInstanceState);
+        OneSignal.startInit(this)
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+                .unsubscribeWhenNotificationsAreDisabled(true)
+                .init();
         setContentView(R.layout.activity_initiate);
         checkconnection();
 
