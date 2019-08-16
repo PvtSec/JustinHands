@@ -8,7 +8,7 @@ Developed with Android Studio and Java
 </p>
 
 
-```json
+```php
 dependencies {  
   testImplementation 'junit:junit:4.12'  
   androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'  
