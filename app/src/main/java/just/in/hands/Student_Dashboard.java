@@ -62,7 +62,8 @@ public class Student_Dashboard extends AppCompatActivity
 
         private void start_fetch()
         {
-            String url="https://neutralizer.ml/api/user_data.php";
+			String base = getString(R.string.base_url);
+            String url=base+"api/user_data.php";
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             JSONObject userdataObject = new JSONObject();
             try

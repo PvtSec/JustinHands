@@ -69,7 +69,8 @@ public class NotesViewerActivity extends AppCompatActivity {
 
     private void get_pdf()
     {
-        String url = "https://neutralizer.ml/"+note_name+".pdf";
+		String base = getString(R.string.base_url);
+        String url = base+""+note_name+".pdf";
         String dirPath = this.getFilesDir().getAbsolutePath();
         Pdf_Stream getPdf = new Pdf_Stream(Request.Method.GET, url, new Response.Listener<byte[]>() {
                     @Override

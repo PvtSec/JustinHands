@@ -60,7 +60,8 @@ public class Updates_Activity extends AppCompatActivity
     public void get_update_list()
     {
         {
-            String url = "https://neutralizer.ml/api/json.php";
+			String base = getString(R.string.base_url);
+            String url = base+"api/json.php";
             SharedPreferences student = getSharedPreferences("login", MODE_PRIVATE);
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {

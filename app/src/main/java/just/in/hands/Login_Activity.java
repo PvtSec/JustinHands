@@ -33,8 +33,6 @@ public class Login_Activity extends AppCompatActivity
     TextView signup,loginError;
     EditText username,password;
     SharedPreferences UserData;
-    private RequestQueue requestQueue;
-    private String url="https://neutralizer.ml/api/signin.php";
     String stat;
 
 
@@ -107,6 +105,9 @@ public class Login_Activity extends AppCompatActivity
 
     private void sendLoginData()
     {
+        RequestQueue requestQueue;
+        String base = getString(R.string.base_url);
+        String url=base+"api/signin.php";
             requestQueue = Volley.newRequestQueue(this);
             JSONObject signinObject = new JSONObject();
             try {
@@ -145,6 +146,8 @@ public class Login_Activity extends AppCompatActivity
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     error.printStackTrace();
+                    loginBtn.revertAnimation();
+                    Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
 
                 }
             });

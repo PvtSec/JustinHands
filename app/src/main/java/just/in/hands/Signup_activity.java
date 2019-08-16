@@ -33,10 +33,6 @@ public class Signup_activity extends AppCompatActivity
     String[] course_list = {"E.C.E","E.E.E","M.E","C.S.E"};
     MaterialBetterSpinner CourseList;
 
-    private RequestQueue requestQueue;
-    private StringRequest stringRequest;
-    private String url="https://neutralizer.ml/api/signup.php";
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -92,6 +88,10 @@ public class Signup_activity extends AppCompatActivity
     }
     private void sendSignupData()
     {
+        RequestQueue requestQueue;
+        StringRequest stringRequest;
+        String base = getString(R.string.base_url);
+        String url=base+"api/signup.php";
         requestQueue = Volley.newRequestQueue(this);
         stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
