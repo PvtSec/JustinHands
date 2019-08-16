@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.onesignal.OneSignal;
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 
 public class Initiate extends AppCompatActivity
 {
@@ -20,6 +22,7 @@ public class Initiate extends AppCompatActivity
     {
         HideSyS_UI.hideui(getWindow().getDecorView());
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         OneSignal.startInit(this)
                 .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
                 .unsubscribeWhenNotificationsAreDisabled(true)
@@ -36,7 +39,7 @@ public class Initiate extends AppCompatActivity
         if(internet.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 internet.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED)
         {
-            Toast.makeText(getApplicationContext(),"Internet Connection Success",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),"Internet Connection Success",Toast.LENGTH_SHORT).show();
             startActivity(new Intent(Initiate.this, Login_Activity.class));
             finish();
         }
