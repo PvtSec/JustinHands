@@ -34,7 +34,7 @@ public class Login_Activity extends AppCompatActivity
     EditText username,password;
     SharedPreferences UserData;
     private RequestQueue requestQueue;
-    private String url="http://neutralizer.ml/api/signin.php";
+    private String url="https://neutralizer.ml/api/signin.php";
     String stat;
 
 

@@ -35,7 +35,7 @@ public class Signup_activity extends AppCompatActivity
 
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
-    private String url="http://neutralizer.ml/api/signup.php";
+    private String url="https://neutralizer.ml/api/signup.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

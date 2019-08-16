@@ -52,7 +52,7 @@ public class NotesLoader extends AppCompatActivity
     public void get_notes_list()
     {
         {
-            String url = "http://neutralizer.ml/api/notes_data.php";
+            String url = "https://neutralizer.ml/api/notes_data.php";
             SharedPreferences student = getSharedPreferences("login", MODE_PRIVATE);
             final String student_id = student.getString("Student_ID", "");
             RequestQueue requestQueue = Volley.newRequestQueue(this);
