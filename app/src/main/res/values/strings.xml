@@ -57,6 +57,8 @@
     <string name="sem8">Semester 8</string>
     <string name="logout">LOGOUT</string>
     <string name="note_notFound">Notes not found. Kindly Contact Administrator</string>
+    <string name="ece_doubts">Academic Doubts</string>
+    <string name="general_doubts">Technical Doubts</string>
 
 
 </resources>
