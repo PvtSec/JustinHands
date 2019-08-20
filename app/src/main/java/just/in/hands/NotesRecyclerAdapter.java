@@ -56,7 +56,7 @@ public class NotesRecyclerAdapter extends RecyclerView.Adapter<NotesRecyclerAdap
                 Toast.makeText(context,course_name.get(position),Toast.LENGTH_SHORT).show();
                 Intent note =new Intent(context, NotesViewerActivity.class);
                 note.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                note.putExtra("Subject",course_name.get(position));
+                note.putExtra("Subject",course_id.get(position));
                 context.startActivity(note);
             }
         });

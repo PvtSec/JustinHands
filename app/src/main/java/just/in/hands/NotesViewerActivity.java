@@ -25,7 +25,7 @@ import java.io.FileOutputStream;
 
 public class NotesViewerActivity extends AppCompatActivity {
     PDFView note_pdf;
-    String note_name;
+    String course_code;
     TextView not_found;
     AVLoadingIndicatorView loader;
 
@@ -40,12 +40,12 @@ public class NotesViewerActivity extends AppCompatActivity {
         loader.show();
         PRDownloader.initialize(getApplicationContext());
         Intent intent = getIntent();
-        note_name = intent.getExtras().getString("Subject");
+        course_code = intent.getExtras().getString("Subject");
         check_exist();
     }
 
     public void check_exist() {
-        String path = this.getFilesDir().getAbsolutePath() + "/"+note_name+".pdf";
+        String path = this.getFilesDir().getAbsolutePath() + "/"+course_code+".pdf";
         File files = new File(path);
         if (files.exists()) {
             loader.hide();
@@ -70,7 +70,7 @@ public class NotesViewerActivity extends AppCompatActivity {
     private void get_pdf()
     {
 		String base = getString(R.string.base_url);
-        String url = base+""+note_name+".pdf";
+        String url = base+"api/notes/"+course_code+".pdf";
         String dirPath = this.getFilesDir().getAbsolutePath();
         Pdf_Stream getPdf = new Pdf_Stream(Request.Method.GET, url, new Response.Listener<byte[]>() {
                     @Override
@@ -79,7 +79,7 @@ public class NotesViewerActivity extends AppCompatActivity {
                             if (response!=null) {
                                 File dir = new File (getApplicationContext().getFilesDir().getAbsolutePath());
                                 dir.mkdirs();
-                                File pdfFile = new File(getApplicationContext().getFilesDir().getAbsolutePath()+"/"+note_name+".pdf");
+                                File pdfFile = new File(getApplicationContext().getFilesDir().getAbsolutePath()+"/"+course_code+".pdf");
                                 FileOutputStream stream = new FileOutputStream(pdfFile);
                                 try {
                                     stream.write(response);
