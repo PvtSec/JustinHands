@@ -16,7 +16,8 @@
         android:roundIcon="@drawable/logo_small"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NotesViewerActivity"></activity>
+        <activity android:name=".DoubtsActivity"></activity>
+        <activity android:name=".NotesViewerActivity" />
         <activity android:name=".NotesLoader" />
         <activity
             android:name=".Signup_activity"
@@ -41,6 +42,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="f44e5ab4a4ed008db8a66b5227d3fdbb2c8a241e" />

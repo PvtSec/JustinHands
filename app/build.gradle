@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        maven { url 'https://plugins.gradle.org/m2/'}
+        maven { url 'https://plugins.gradle.org/m2/' }
         maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
@@ -22,7 +22,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         manifestPlaceholders = [
-                onesignal_app_id: '5ce54858-664e-4b90-8bf5-99794cbe3a8c',
+                onesignal_app_id               : '5ce54858-664e-4b90-8bf5-99794cbe3a8c',
                 onesignal_google_project_number: 'REMOTE'
         ]
         applicationId "just.in.hands"

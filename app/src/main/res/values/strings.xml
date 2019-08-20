@@ -47,6 +47,7 @@
     <string name="trans_internals">internals</string>
     <string name="trans_projects">projects</string>
     <string name="trans_helpdesk">helpdesk</string>
+    <string name="trans_doubts">doubts</string>
 
     <string name="common_subjects">First Year</string>
     <string name="sem3">Semester 3</string>

@@ -64,7 +64,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="5dp"
                         android:src="@drawable/help"
-                        android:transitionName="@string/trans_updates" />
+                        android:transitionName="@string/trans_doubts" />
 
                     <View
                         android:layout_width="0.5dp"
@@ -112,7 +112,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="5dp"
                         android:src="@drawable/tech_help"
-                        android:transitionName="@string/trans_notes" />
+                        android:transitionName="@string/trans_doubts" />
 
                     <View
                         android:layout_width="0.5dp"
