@@ -33,25 +33,25 @@ public class Helpdesk_Activity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent start_academic = new Intent(Helpdesk_Activity.this, DoubtsActivity.class);
-                start_academic.putExtra("Category","Academic");
-                View academic_doubt = findViewById(R.id.academic_icon);
-                String academic_string = getString(R.string.trans_doubts);
-                ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(Helpdesk_Activity.this, academic_doubt, academic_string);
-                startActivity(start_academic,transitionActivityOptions.toBundle());
+                clicker("Academic");
             }
         });
         tech.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-                Intent start_general = new Intent(Helpdesk_Activity.this, DoubtsActivity.class);
-                start_general.putExtra("Category","Tech");
-                View tech_doubt = findViewById(R.id.genearl_icon);
-                String tech_string = getString(R.string.trans_doubts);
-                ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(Helpdesk_Activity.this, tech_doubt, tech_string);
-                startActivity(start_general,transitionActivityOptions.toBundle());
+                clicker("Tech");
             }
         });
+    }
+
+    public void clicker(String category)
+    {
+        Intent start_doubt = new Intent(Helpdesk_Activity.this, DoubtsActivity.class);
+        start_doubt.putExtra("Category",category);
+        View academic_doubt = findViewById(R.id.academic_icon);
+        String academic_string = getString(R.string.trans_doubts);
+        ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(Helpdesk_Activity.this, academic_doubt, academic_string);
+        startActivity(start_doubt,transitionActivityOptions.toBundle());
     }
 }

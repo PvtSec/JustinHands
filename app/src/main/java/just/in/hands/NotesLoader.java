@@ -27,8 +27,8 @@ import java.util.Map;
 public class NotesLoader extends AppCompatActivity
 {
     private RecyclerView notes_View;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
+    private RecyclerView.Adapter noteAdapter;
+    private RecyclerView.LayoutManager noteLayoutManager;
     AVLoadingIndicatorView note_progress;
 
     ArrayList<String> course_id = new ArrayList<>();
@@ -104,16 +104,16 @@ public class NotesLoader extends AppCompatActivity
             e.printStackTrace();
         }
         notes_View = findViewById(R.id.notes_recycle);
-        mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        notes_View.setLayoutManager(mLayoutManager);
+        noteLayoutManager = new LinearLayoutManager(getApplicationContext());
+        notes_View.setLayoutManager(noteLayoutManager);
 
-        mAdapter = new NotesRecyclerAdapter(getApplicationContext(), course_id, course_name);
-        notes_View.setAdapter(mAdapter);
+        noteAdapter = new NotesRecyclerAdapter(getApplicationContext(), course_id, course_name);
+        notes_View.setAdapter(noteAdapter);
         notes_View = findViewById(R.id.notes_recycle);
-        mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        notes_View.setLayoutManager(mLayoutManager);
+        noteLayoutManager = new LinearLayoutManager(getApplicationContext());
+        notes_View.setLayoutManager(noteLayoutManager);
 
-        mAdapter = new NotesRecyclerAdapter(getApplicationContext(), course_id, course_name);
-        notes_View.setAdapter(mAdapter);
+        noteAdapter = new NotesRecyclerAdapter(getApplicationContext(), course_id, course_name);
+        notes_View.setAdapter(noteAdapter);
     }
 }
