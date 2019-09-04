@@ -20,7 +20,7 @@
             android:clipToPadding="false"
             android:gravity="left|center"
             android:orientation="horizontal"
-            android:background="@drawable/dash_title"
+            android:background="@drawable/header_gradient"
             android:paddingTop="3dp">
 
             <LinearLayout
