@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">Just In Hands</string>
-    <string name="base_url">"http://gecwapi.cf/"</string>
+    <string name="base_url">"http://gecw-api.000webhostapp.com/"</string>
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
     <string name="login_button">submit</string>
