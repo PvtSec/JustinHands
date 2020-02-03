@@ -1,6 +1,6 @@
 <?php
 
-$database = mysqli_connect('localhost', 'id10796925_pvtsec', 'Jarvis@2019', 'id10796925_gecwapi');
+$database = mysqli_connect('localhost', 'db_username', 'db_password', 'db_name');
 if (isset($_POST['Name']))
 {
 $Name= mysqli_real_escape_string($database, $_POST['Name']);

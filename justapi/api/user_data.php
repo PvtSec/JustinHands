@@ -3,7 +3,7 @@ $json = file_get_contents('php://input');
 $json_data = json_decode($json);
 $unique_id=$json_data->userID;
 
-$database = mysqli_connect('localhost', 'id10796925_pvtsec', 'Jarvis@2019', 'id10796925_gecwapi');
+$database = mysqli_connect('localhost', 'db_username', 'db_password', 'db_name');
 
 $query = "SELECT * FROM Student_Creds WHERE Student_ID='$unique_id'";
 $result = mysqli_fetch_array(mysqli_query($database,$query));
