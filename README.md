@@ -4,7 +4,7 @@ Developed with Android Studio and Java
 </p>
 
 <p align="center">
-  <img src="http://neutralizer.ml/api/git.png">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsqpza0HKOS7DRjen__0FTI_0kMmQJLmPhklfT3HFYqzi-r8Q8">
 </p>
 
 
