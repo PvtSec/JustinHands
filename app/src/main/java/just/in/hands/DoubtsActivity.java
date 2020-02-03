@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -32,6 +34,7 @@ public class DoubtsActivity extends AppCompatActivity
     private RecyclerView.LayoutManager doubtLayoutManager;
     AVLoadingIndicatorView doubt_progress;
     ImageView answer_stat_img;
+    Button goto_ask;
 
     ArrayList<String> question_id = new ArrayList<>();
     ArrayList<String> question_txt = new ArrayList<>();
@@ -46,6 +49,7 @@ public class DoubtsActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doubts);
         doubt_progress = findViewById(R.id.doubts_progress);
+        goto_ask = findViewById(R.id.askq);
         question_id.clear();
         question_txt.clear();
         question_stat.clear();
@@ -54,6 +58,14 @@ public class DoubtsActivity extends AppCompatActivity
         Intent doubt_intent = getIntent();
         category = doubt_intent.getStringExtra("Category");
         Toast.makeText(getApplicationContext(),category,Toast.LENGTH_SHORT).show();
+
+        goto_ask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ask_intent = new Intent(DoubtsActivity.this,QuestionActivity.class);
+                startActivity(ask_intent);
+            }
+        });
 
         get_user_doubts();
     }

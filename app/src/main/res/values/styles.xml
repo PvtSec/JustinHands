@@ -18,6 +18,10 @@
         <item name="android:fontFamily">@font/font</item>
     </style>
 
+    <style name="PopupTheme" parent="Theme.AppCompat.Light.Dialog.MinWidth">
+
+    </style>
+
 
     <style name="Button.Theme" parent="Widget.AppCompat.Button.Borderless.Colored">
         <item name="android:textColor">#000</item>

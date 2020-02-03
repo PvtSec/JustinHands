@@ -2,23 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="just.in.hands">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
-
     <application
-		android:usesCleartextTraffic="true"
-		
         android:allowBackup="true"
         android:icon="@drawable/logo_small"
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo_small"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".DoubtsActivity"></activity>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".QuestionActivity" android:theme="@style/PopupTheme"/>
+        <activity android:name=".DoubtsActivity" />
         <activity android:name=".NotesViewerActivity" />
         <activity android:name=".NotesLoader" />
         <activity
@@ -49,5 +42,12 @@
             android:name="io.fabric.ApiKey"
             android:value="f44e5ab4a4ed008db8a66b5227d3fdbb2c8a241e" />
     </application>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
