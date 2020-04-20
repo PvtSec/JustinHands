@@ -40,7 +40,7 @@
 
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="f44e5ab4a4ed008db8a66b5227d3fdbb2c8a241e" />
+            android:value="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" />
     </application>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
